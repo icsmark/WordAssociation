@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  word: MyString
+  pos: 1
+  neighbor: MyString
+  string: MyString
+  score: 1
+  book_id: 
+
+two:
+  word: MyString
+  pos: 1
+  neighbor: MyString
+  string: MyString
+  score: 1
+  book_id: 

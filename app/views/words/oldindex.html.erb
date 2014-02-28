@@ -1,0 +1,22 @@
+<h1>Words</h1>
+<% form_tag words_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Find Top Associated Words", :name => nil %>
+  </p>
+<% end %>
+  <tr>
+    <th>Word score </th>
+    <th>position </th>
+  </tr>
+ 
+  <% @words.each do |word| %>
+    <tr>
+      <td><%= word.word %> => <%= word.neighbor %> = <%= word.score%></td>
+      <td><%= word.pos%></td>
+    </tr>
+  <% end %>
+<tr><th>
+<%= link_to "Remove All Words", remove_all_words_path, :method => :get,  data: { confirm: 'Are you sure?' }  %>
+</th></tr>
+</table>

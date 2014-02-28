@@ -1,0 +1,16 @@
+<h1>Word Associations</h1>
+<%= form_tag words_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Submit", :name => nil %>
+  </p>
+<% end %>
+  <% @words.each do |word| %>
+    <ul>
+      <li><%= word.word %>=><%= word.neighbor %> Score: <%=word.score%></li>
+    </ul>
+  <% end %>
+
+<%= link_to 'Home Page', root_path %> |
+<%= link_to 'Manage Book Database', books_path %> |
+<%= link_to "Remove All Words", remove_all_words_path, :method => :get,  data: { confirm: 'Are you sure?' }  %>

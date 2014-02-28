@@ -1,0 +1,27 @@
+<h1>Manage Books</h1>
+ 
+<table>
+  <tr>
+    <th>Title</th>
+  </tr>
+ 
+  <% @books.each do |book| %>
+    <tr>
+      <td><%= book.title %>
+      <%= link_to 'Show', book %>  |
+      <%= link_to 'Delete', book_path(book),
+                    method: :delete, data: { confirm: 'Are you sure?' } %>
+    </td></tr>
+  <% end %>
+<tr><th>
+<p>
+<p>
+<%= link_to 'Home Page', root_path %> |
+<%= link_to 'Query Word Associations', words_path %> |
+<%= link_to 'Add Book', new_book_path %> |
+<%= link_to "Remove All Books", remove_all_books_path, :method => :get,  data: { confirm: 'Are you sure?' }  %>
+
+</th></tr>
+</table>
+<p> Note that deleting books will delete all word associates as well. This process is very slow with SQLite. It is recommended that you delete the word association data
+before you remove all bookse
